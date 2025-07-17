@@ -1,0 +1,65 @@
+tags:
+  - Contacts
+summary: Create a new contact
+operationId: createContact
+description: 'Creates a new contact and assigns it to the currently authenticated user'
+security:
+  - bearerAuth: []
+requestBody:
+  content:
+    multipart/form-data:
+      schema:
+        type: object
+        required:
+          - name
+          - phoneNumber
+          - email
+          - contactType
+        properties:
+          name:
+            type: string
+            description: "Contact's name"
+            example: 'Denis'
+          phoneNumber:
+            type: string
+            description: "Contact's phone number"
+            example: '380931122333'
+          email:
+            type: string
+            description: "Contact's email"
+            example: 'denis.it@gmail.com'
+          isFavorite:
+            type: boolean
+            example: false
+          contactType:
+            type: string
+            enum: ['personal', 'work', 'other']
+            example: 'work'
+          photo:
+            type: string
+            description: "Contact's photo"
+            format: binary
+responses:
+  '201':
+    description: Contact successfully created
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - status
+            - message
+            - data
+          properties:
+            status:
+              type: integer
+              example: 201
+            message:
+              type: string
+              example: Successfully created contact!
+            data:
+              $ref: ../../components/schemas/contact.yaml
+  '401':
+    $ref: '../../components/responses/401.yaml'
+  '400':
+    $ref: ../../components/responses/400.yaml

@@ -1,0 +1,15 @@
+tags:
+  - Auth
+summary: Refresh user session
+operationId: refreshSession
+security:
+  - bearerAuth: []
+responses:
+  '200':
+    description: New access token issued
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/tokenResponse.yaml
+  '401':
+    $ref: ../../components/responses/401.yaml

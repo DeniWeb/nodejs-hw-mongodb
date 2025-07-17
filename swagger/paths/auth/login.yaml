@@ -1,0 +1,23 @@
+tags:
+  - Auth
+summary: Login user
+operationId: loginUser
+description: 'Authenticate user with email and password and receive access token'
+security: []
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        $ref: ../../components/schemas/login.yaml
+responses:
+  '200':
+    description: User successfully logged in
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/loginResponse.yaml
+  '400':
+    $ref: ../../components/responses/400.yaml
+  '401':
+    $ref: ../../components/responses/401.yaml

@@ -1,0 +1,45 @@
+tags:
+  - Auth
+summary: Request password reset email
+operationId: requestResetEmail
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        $ref: ../../components/schemas/resetEmail.yaml
+responses:
+  '200':
+    description: Password reset email sent
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - status
+            - message
+          properties:
+            status:
+              type: integer
+              example: 200
+            message:
+              type: string
+              example: Reset email sent successfully
+  '400':
+    $ref: ../../components/responses/400.yaml
+  '404':
+    description: Email not found
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - status
+            - message
+          properties:
+            status:
+              type: integer
+              example: 404
+            message:
+              type: string
+              example: Email not found
