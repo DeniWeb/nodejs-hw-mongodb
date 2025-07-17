@@ -11,7 +11,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:3000"
+      "url": "https://nodejs-hw-mongodb-njd4.onrender.com"
     }
   ],
   "tags": [
@@ -280,7 +280,7 @@
         "tags": [
           "Contacts"
         ],
-        "summary": "Get contact by id",
+        "summary": "Get contact by Id",
         "operationId": "getContact",
         "description": "Returns a single contact by its unique ID",
         "security": [
@@ -341,7 +341,7 @@
         "tags": [
           "Contacts"
         ],
-        "summary": "Update contact by id",
+        "summary": "Update contact by Id",
         "operationId": "updateContact",
         "description": "Updates an existing contact by its unique ID",
         "security": [
@@ -444,7 +444,7 @@
         "tags": [
           "Contacts"
         ],
-        "summary": "Delete contact by ID",
+        "summary": "Delete contact by Id",
         "operationId": "deleteContact",
         "description": "Permanently removes the contact with the specified ID if it belongs to the authenticated user.",
         "security": [
